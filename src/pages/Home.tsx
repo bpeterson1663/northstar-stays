@@ -1,3 +1,4 @@
+import { StayList } from '../features/stays/StayList'
 import { useStays } from '../features/stays/useStays'
 
 export function Home() {
@@ -12,12 +13,8 @@ export function Home() {
   }
 
   return (
-    <section>
-      {stays.map(stay => (
-        <div key={stay.id}>
-          {stay.name}
-        </div>
-      ))}
+    <section aria-label="Available stays">
+      <StayList stays={stays}></StayList>
     </section>
   )
 }
