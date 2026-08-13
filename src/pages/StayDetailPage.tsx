@@ -5,7 +5,7 @@ import { useStay } from '../features/stays/useStay'
 
 export function StayDetailPage() {
   const { id } = useParams<{ id: string }>()
-  const { stay, status, message } = useStay(id ?? '')
+  const { stay, status, message, refetch } = useStay(id ?? '')
 
   if (!id) {
     return (
@@ -28,5 +28,5 @@ export function StayDetailPage() {
     )
   }
 
-  return <StayDetail stay={stay} />
+  return <StayDetail stay={stay} onReviewCreated={() => void refetch()} />
 }

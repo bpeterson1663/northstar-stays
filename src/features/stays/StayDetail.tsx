@@ -7,9 +7,10 @@ import './StayDetail.css'
 
 interface Props {
     stay: StayDetailType
+    onReviewCreated?: () => void
 }
 
-export function StayDetail({ stay }: Props) {
+export function StayDetail({ stay, onReviewCreated }: Props) {
     const images =
         stay.images.length > 0
             ? stay.images.map((imageUrl, idx) => ({
@@ -79,7 +80,7 @@ export function StayDetail({ stay }: Props) {
                         </section>
                     )}
                     <section className="stay-detail__section">
-                        <ReviewSection stayId={stay.id} averageRating={stay.rating} reviewCount={stay.reviewCount} />
+                        <ReviewSection stayId={stay.id} onReviewCreated={onReviewCreated} averageRating={stay.rating} reviewCount={stay.reviewCount} />
                     </section>
                 </div>
                 <aside className="stay-detail__aside" aria-label="Booking summary">

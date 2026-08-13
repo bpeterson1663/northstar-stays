@@ -10,7 +10,7 @@ interface ReviewsState {
     message: string;
 }
 
-export function useReviews(stayId: string): ReviewsState {
+export function useReviews(stayId: string): ReviewsState & { addReview: (review: Review) => void} {
     const [state, setState] = useState<ReviewsState>({ status: 'loading', reviews: [], message: ''})
 
     useEffect(() => {
@@ -38,5 +38,13 @@ export function useReviews(stayId: string): ReviewsState {
 
     }, [stayId])
 
-    return state
+    function addReview(review: Review) {
+        setState((prev) => ({
+          ...prev,
+          status: 'success',
+          reviews: [review, ...prev.reviews],
+        }))
+    }
+
+    return { ...state, addReview}
 }
