@@ -15,8 +15,11 @@ interface Props {
 type FormState = { error: string } | null
 
 export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
+    const [guestName, setGuestName] = useState('')
+    const [guestEmail, setGuestEmail] = useState('')
     const [checkIn, setCheckIn] = useState('')
-    const [checkOut, setCheckOut] = useState('') 
+    const [checkOut, setCheckOut] = useState('')
+    const [cardNumber, setCardNumber] = useState('')
     
     const [state, checkoutAction] = useActionState(
         async (_prev: FormState, formData: FormData): Promise<FormState> => {
@@ -63,19 +66,19 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
             <h2 className="checkout-form__title">Checkout</h2>
             <div className="checkout-form__field">
                 <label htmlFor="guest-name">Name</label>
-                <input id="guest-name" name="guestName" type="text" autoComplete="name" required />
+                <input id="guest-name" name="guestName" type="text" autoComplete="name" required value={guestName} onChange={(e) => setGuestName(e.target.value)} />
             </div>
             <div className="checkout-form__field">
                 <label htmlFor="guest-email">Email</label>
-                <input id="guest-email" name="guestEmail" type="email" autoComplete="email" required />
+                <input id="guest-email" name="guestEmail" type="email" autoComplete="email" required value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} />
             </div>
             <div className="checkout-form__field">
                 <label htmlFor="check-in">Check in</label>
-                <input id="check-in" name="checkIn" type="date" required onChange={(e) => setCheckIn(e.target.value)} />
+                <input id="check-in" name="checkIn" type="date" required value={checkIn} onChange={(e) => setCheckIn(e.target.value)} />
             </div>
             <div className="checkout-form__field">
                 <label htmlFor="check-out">Check out</label>
-                <input id="check-out" name="checkOut" type="date" required onChange={(e) => setCheckOut(e.target.value)} />
+                <input id="check-out" name="checkOut" type="date" required value={checkOut} onChange={(e) => setCheckOut(e.target.value)} />
             </div>
             <div className="checkout-form__field">
                 <label htmlFor="card-number">Card number</label>
@@ -87,6 +90,8 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
                     minLength={4}
                     placeholder="4242 4242 4242 4242"
                     required
+                    value={cardNumber}
+                    onChange={(e) => setCardNumber(e.target.value)}
                 />
             </div>
 
