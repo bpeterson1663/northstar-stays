@@ -11,3 +11,18 @@ export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
 
     return response.json() as Promise<T>
 }
+
+export async function apiPost<T>(path: string, body: unknown, init?: RequestInit): Promise<T> {
+    const response = await fetch(`${BASE_URL}${path}`, {
+        ...init,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...init?.headers },
+        body: JSON.stringify(body),
+    })
+
+    if (!response.ok) {
+        throw new ApiError(response.status, `Request failed: ${response.status}`)
+    }
+
+    return response.json()
+}

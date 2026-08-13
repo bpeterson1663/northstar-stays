@@ -6,9 +6,9 @@ import type { Stay } from '../../shared/types/stay'
 import { isAbortError } from '../../shared/api/error'
 
 interface StaysState {
-    status: Status,
-    stays: Stay[],
-    message: string
+    status: Status;
+    stays: Stay[];
+    message: string;
 }
 
 export function useStays(): StaysState {

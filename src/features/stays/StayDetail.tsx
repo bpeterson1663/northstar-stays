@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import type { StayDetail as StayDetailType } from "../../shared/types/stay";
 import { Gallery } from "../../shared/ui/Gallery";
+import { ReviewSection } from "../reviews/ReviewSection";
+
 import './StayDetail.css'
 
 interface Props {
@@ -76,6 +78,9 @@ export function StayDetail({ stay }: Props) {
                             </ul>
                         </section>
                     )}
+                    <section className="stay-detail__section">
+                        <ReviewSection stayId={stay.id} averageRating={stay.rating} reviewCount={stay.reviewCount} />
+                    </section>
                 </div>
                 <aside className="stay-detail__aside" aria-label="Booking summary">
                     <div className="stay-detail__booking">
