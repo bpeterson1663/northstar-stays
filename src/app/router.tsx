@@ -4,6 +4,7 @@ import { Layout } from './Layout.tsx'
 import { Home } from '../pages/Home.tsx'
 import { StayDetailPage } from '../pages/StayDetailPage.tsx'
 import { CheckoutPage } from '../pages/CheckoutPage.tsx'
+import { BookingConfirmationPage } from '../pages/BookingConfirmationPage.tsx'
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ export const router = createBrowserRouter([
       {
         path: 'stays/:id/checkout',
         element: <CheckoutPage />,
-      }
+      },
+      {
+        path: 'bookings/:bookingId',
+        element: <BookingConfirmationPage />,
+      },
     ],
   },
 ])

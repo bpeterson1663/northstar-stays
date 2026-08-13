@@ -1,0 +1,135 @@
+.confirmation {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.confirmation__header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.confirmation__check {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.confirmation__status {
+  margin: 0 0 0.35rem;
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.confirmation__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--color-ink);
+}
+
+.confirmation__email {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.confirmation__email strong {
+  color: var(--color-ink);
+}
+
+.confirmation__stay {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface-raised);
+}
+
+.confirmation__image {
+  display: block;
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.confirmation__stay-body {
+  padding: 1rem 1.25rem;
+}
+
+.confirmation__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-ink);
+}
+
+.confirmation__location,
+.confirmation__dates,
+.confirmation__meta {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+.confirmation__summary {
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface-raised);
+}
+
+.confirmation__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-muted);
+}
+
+.confirmation__total {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink);
+}
+
+.confirmation__payment {
+  margin: 0.75rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.confirmation__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.confirmation__back:hover {
+  filter: brightness(1.05);
+}
+
+.confirmation__back:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}

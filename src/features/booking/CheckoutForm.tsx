@@ -31,7 +31,7 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
             }
             
             if (checkOut <= checkIn) {
-                return { error: 'Check-out must be after check-in.' };
+                return { error: 'Check out must be after check in.' };
             }
 
             const paymentLast4 = cardNumber.slice(-4) || undefined;
@@ -62,7 +62,7 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
         <form className="checkout-form" action={checkoutAction}>
             <h2 className="checkout-form__title">Checkout</h2>
             <div className="checkout-form__field">
-                <label htmlFor="guest-name">Full name</label>
+                <label htmlFor="guest-name">Name</label>
                 <input id="guest-name" name="guestName" type="text" autoComplete="name" required />
             </div>
             <div className="checkout-form__field">
@@ -70,11 +70,11 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
                 <input id="guest-email" name="guestEmail" type="email" autoComplete="email" required />
             </div>
             <div className="checkout-form__field">
-                <label htmlFor="check-in">Check-in</label>
+                <label htmlFor="check-in">Check in</label>
                 <input id="check-in" name="checkIn" type="date" required onChange={(e) => setCheckIn(e.target.value)} />
             </div>
             <div className="checkout-form__field">
-                <label htmlFor="check-out">Check-out</label>
+                <label htmlFor="check-out">Check out</label>
                 <input id="check-out" name="checkOut" type="date" required onChange={(e) => setCheckOut(e.target.value)} />
             </div>
             <div className="checkout-form__field">
@@ -103,6 +103,7 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
                             ${total.nightlyRate} × {total.nights}{' '}
                             {total.nights === 1 ? 'night' : 'nights'}
                         </span>
+                        <span>${total.total}</span>
                     </div>
                     <div className="checkout-form__summary-total">
                         <span>Total</span>
