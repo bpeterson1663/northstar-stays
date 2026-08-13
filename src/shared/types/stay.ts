@@ -10,9 +10,14 @@ export interface Stay {
   bedrooms: number
   baths: number
   maxGuests: number
+}
+
+export interface StayDetail extends Stay {
   description: string
   amenities: string[]
   images: string[]
   highlights: string[]
   cleaningFee: number
+  availabilitySummary: string
+  cancellationPolicy: string
 }

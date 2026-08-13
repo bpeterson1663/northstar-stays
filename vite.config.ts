@@ -6,9 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // Forward API calls to the local Go server during development.
-      '/stays': 'http://localhost:8080',
-      '/bookings': 'http://localhost:8080',
+      '/api': 'http://localhost:8080',
     },
   },
 })

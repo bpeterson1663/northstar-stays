@@ -1,0 +1,212 @@
+.stay-detail {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+
+  .stay-detail__back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--color-ink-soft);
+    font-size: 0.9375rem;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+
+  .stay-detail__layout {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .stay-detail__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .stay-detail__title {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .stay-detail__location {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  .stay-detail__badge {
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  .stay-detail__facts,
+  .stay-detail__rating-line {
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+
+    [aria-hidden='true'] {
+      color: var(--color-rating);
+    }
+  }
+
+  .stay-detail__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin: 0 0 1.75rem;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+  }
+
+  .stay-detail__section {
+    margin-bottom: 1.75rem;
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.6;
+    }
+  }
+
+  .stay-detail__amenities,
+  .stay-detail__highlights {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .stay-detail__amenities {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .stay-detail__highlights {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .stay-detail__amenities li,
+  .stay-detail__highlight {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-surface-raised);
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+
+  .stay-detail__booking {
+    position: sticky;
+    top: 1rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface-raised);
+  }
+
+  .stay-detail__price {
+    margin: 0 0 0.35rem;
+    font-size: 1.5rem;
+
+    span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-muted);
+    }
+  }
+
+  .stay-detail__rating-line {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .stay-detail__fees {
+    margin: 0 0 1rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9375rem;
+    }
+
+    div:last-child {
+      margin-bottom: 0;
+    }
+
+    dt {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    dd {
+      margin: 0;
+      font-weight: 600;
+    }
+  }
+
+  .stay-detail__availability,
+  .stay-detail__policy {
+    margin: 0 0 0.65rem;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-muted);
+  }
+
+  .stay-detail__policy {
+    margin-bottom: 1.25rem;
+    color: var(--color-primary);
+  }
+
+  .stay-detail__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .stay-detail .stay-detail__layout {
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+    align-items: start;
+  }
+}

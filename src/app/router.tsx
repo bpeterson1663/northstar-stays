@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { Layout } from './Layout.tsx'
+
 import { Home } from '../pages/Home.tsx'
+import { StayDetailPage } from '../pages/StayDetailPage.tsx'
+import { Layout } from './Layout.tsx'
 
 export const router = createBrowserRouter([
   {
@@ -10,6 +12,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: 'stays/:id',
+        element: <StayDetailPage />,
       },
     ],
   },
