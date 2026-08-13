@@ -15,4 +15,7 @@
   --color-shadow: rgb(12 35 64 / 8%);
 
   --radius-card: 16px;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
 }

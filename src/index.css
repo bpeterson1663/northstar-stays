@@ -4,4 +4,11 @@ body {
   margin: 0;
   background: var(--color-surface);
   color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
