@@ -24,7 +24,7 @@ export interface Booking {
   createdAt: string
 }
 
-export type CreateBookingInput = {
+export interface CreateBookingInput {
   stayId: string
   guestName: string
   guestEmail: string
