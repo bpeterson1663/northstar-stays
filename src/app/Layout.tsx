@@ -1,12 +1,15 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
+
+import './Layout.css'
 
 export function Layout() {
   return (
     <>
-      <h1>Northstar Stays</h1>
-      <nav>
-        <button>Home</button>
-      </nav>
+      <header className="site-header">
+        <Link to="/" className="site-header__brand">
+          Northstar Stays
+        </Link>
+      </header>
       <main>
         <Outlet />
       </main>

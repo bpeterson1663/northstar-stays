@@ -4,6 +4,11 @@ import { StayList } from '../features/stays/StayList'
 import { StaySearch } from '../features/stays/StaySearch'
 import { useStays } from '../features/stays/useStays'
 
+import './Home.css'
+
+const HERO_IMAGE =
+  'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=1600&q=80'
+
 export function Home() {
   const [searchParams] = useSearchParams()
   const q = (searchParams.get('q') ?? '').trim().toLowerCase()
@@ -26,18 +31,41 @@ export function Home() {
     return true
   })
 
-  if (status === 'loading') {
-    return <p>Loading stays...</p>
-  }
-
-  if (status === 'error') {
-    return <p>An Error occurred: {message}</p>
-  }
-
   return (
-    <section aria-label="Available stays">
-      <StaySearch />
-      <StayList stays={filteredStays}></StayList>
-    </section>
+    <div className="home">
+      <section className="home__hero" aria-labelledby="home-hero-title">
+        <img
+          className="home__hero-image"
+          src={HERO_IMAGE}
+          alt=""
+          role="presentation"
+        />
+        <div className="home__hero-content">
+          <h1 id="home-hero-title" className="home__hero-title">
+            Find your perfect stay in Minnesota
+          </h1>
+          <p className="home__hero-copy">
+            Cabins, lake homes and lodges handpicked across the North Star
+            State from the North Shore to the Boundary Waters.
+          </p>
+        </div>
+      </section>
+
+      <div className="home__body">
+        <StaySearch />
+
+        <section aria-label="Available stays" className="home__results">
+          { status === 'loading' && <p className="home__status">Loading stays…</p> }
+
+          { status === 'error' &&
+            <p className="home__status home__status--error">
+              An error occurred: {message}
+            </p>
+          }
+
+          { status === 'success' && <StayList stays={filteredStays} /> }
+        </section>
+      </div>
+    </div>
   )
 }
