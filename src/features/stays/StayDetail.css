@@ -209,4 +209,19 @@
     grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
     align-items: start;
   }
+
+  .stay-detail .stay-detail__intro {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .stay-detail .stay-detail__main {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .stay-detail .stay-detail__aside {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
 }

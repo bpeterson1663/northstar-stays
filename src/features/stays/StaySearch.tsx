@@ -31,6 +31,7 @@ export function StaySearch() {
           type="search"
           name="q"
           placeholder="e.g. cabin, Duluth"
+          enterKeyHint="done"
           value={q}
           onChange={(e) => updateParam('q', e.target.value)}
         />
@@ -44,10 +45,15 @@ export function StaySearch() {
           min={0}
           step={1}
           placeholder="e.g. 300"
+          inputMode="numeric"
+          enterKeyHint="done"
           value={maxPrice}
           onChange={(e) => updateParam('maxPrice', e.target.value)}
         />
       </div>
+      <button type="submit" className="stay-search__done">
+        Search
+      </button>
     </form>
   )
 }

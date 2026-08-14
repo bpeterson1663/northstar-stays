@@ -40,9 +40,33 @@
   outline-offset: 2px;
 }
 
+.stay-search__done {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.stay-search__done:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
 @media (min-width: 640px) {
   .stay-search {
     grid-template-columns: 2fr 1fr;
     align-items: end;
+  }
+
+  .stay-search__done {
+    display: none;
   }
 }

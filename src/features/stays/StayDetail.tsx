@@ -28,8 +28,8 @@ export function StayDetail({ stay, onReviewCreated }: Props) {
       <Gallery images={images} />
 
       <div className="stay-detail__layout">
-        <div className="stay-detail__main">
-          <header className="stay-detail__header">
+        <header className="stay-detail__intro">
+          <div className="stay-detail__header">
             <div>
               <h1 className="stay-detail__title">{stay.name}</h1>
               <p className="stay-detail__location">{stay.location}</p>
@@ -37,7 +37,7 @@ export function StayDetail({ stay, onReviewCreated }: Props) {
             {stay.badge ? (
               <span className="stay-detail__badge">{stay.badge}</span>
             ) : null}
-          </header>
+          </div>
           <ul className="stay-detail__facts">
             <li>
               <span aria-hidden="true">★</span>
@@ -47,7 +47,46 @@ export function StayDetail({ stay, onReviewCreated }: Props) {
             <li>{stay.baths} baths</li>
             <li>{stay.maxGuests} guests</li>
           </ul>
+        </header>
 
+        <aside className="stay-detail__aside" aria-label="Booking summary">
+          <div className="stay-detail__booking">
+            <p className="stay-detail__price">
+              <strong>${stay.pricePerNight}</strong>
+              <span> / night</span>
+            </p>
+
+            <p className="stay-detail__rating-line">
+              <span aria-hidden="true">★</span>
+              {stay.rating.toFixed(1)} ({stay.reviewCount} reviews)
+            </p>
+
+            <dl className="stay-detail__fees">
+              <div>
+                <dt>Nightly rate</dt>
+                <dd>${stay.pricePerNight}</dd>
+              </div>
+              <div>
+                <dt>Taxes & fees</dt>
+                <dd>At checkout</dd>
+              </div>
+            </dl>
+
+            <p className="stay-detail__availability">
+              {stay.availabilitySummary}
+            </p>
+            <p className="stay-detail__policy">{stay.cancellationPolicy}</p>
+
+            <Link
+              to={`/stays/${stay.id}/checkout`}
+              className="stay-detail__cta"
+            >
+              Continue to checkout
+            </Link>
+          </div>
+        </aside>
+
+        <div className="stay-detail__main">
           <section
             className="stay-detail__section"
             aria-labelledby="about-heading"
@@ -91,46 +130,6 @@ export function StayDetail({ stay, onReviewCreated }: Props) {
             />
           </section>
         </div>
-        <aside className="stay-detail__aside" aria-label="Booking summary">
-          <div className="stay-detail__booking">
-            <p className="stay-detail__price">
-              <strong>${stay.pricePerNight}</strong>
-              <span> / night</span>
-            </p>
-
-            <p className="stay-detail__rating-line">
-              <span aria-hidden="true">★</span>
-              {stay.rating.toFixed(1)} ({stay.reviewCount} reviews)
-            </p>
-
-            <dl className="stay-detail__fees">
-              <div>
-                <dt>Nightly rate</dt>
-                <dd>${stay.pricePerNight}</dd>
-              </div>
-              <div>
-                <dt>Cleaning fee</dt>
-                <dd>${stay.cleaningFee}</dd>
-              </div>
-              <div>
-                <dt>Taxes & fees</dt>
-                <dd>At checkout</dd>
-              </div>
-            </dl>
-
-            <p className="stay-detail__availability">
-              {stay.availabilitySummary}
-            </p>
-            <p className="stay-detail__policy">{stay.cancellationPolicy}</p>
-
-            <Link
-              to={`/stays/${stay.id}/checkout`}
-              className="stay-detail__cta"
-            >
-              Continue to checkout
-            </Link>
-          </div>
-        </aside>
       </div>
     </article>
   )
