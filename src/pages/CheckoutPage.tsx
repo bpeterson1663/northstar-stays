@@ -10,31 +10,30 @@ export function CheckoutPage() {
 
   if (!id) {
     return (
-        <p>
-            Stay not found. <Link to="/">Back to stays</Link>
-        </p>
+      <p>
+        Stay not found. <Link to="/">Back to stays</Link>
+      </p>
     )
   }
 
-    if (status === 'loading') {
-        return <p>Loading stay…</p>
-    }
+  if (status === 'loading') {
+    return <p>Loading stay…</p>
+  }
 
-    if (status === 'error' || !stay) {
-        return (
-            <p>
-                {message || 'Stay not found.'}{' '}
-                <Link to="/">Back to stays</Link>
-            </p>
-        )
-    }
-
+  if (status === 'error' || !stay) {
     return (
+      <p>
+        {message || 'Stay not found.'} <Link to="/">Back to stays</Link>
+      </p>
+    )
+  }
+
+  return (
     <Checkout
-        stay={stay}
-        onCreated={(booking) =>
-            navigate(`/bookings/${booking.id}`, { state: { booking } })
-        }
+      stay={stay}
+      onCreated={(booking) =>
+        navigate(`/bookings/${booking.id}`, { state: { booking } })
+      }
     />
   )
 }

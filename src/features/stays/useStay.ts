@@ -11,7 +11,9 @@ interface StayState {
   message: string
 }
 
-export function useStay(id: string): StayState & { refetch: () => Promise<void> } {
+export function useStay(
+  id: string,
+): StayState & { refetch: () => Promise<void> } {
   const [state, setState] = useState<StayState>({
     status: 'loading',
     message: '',
@@ -19,7 +21,11 @@ export function useStay(id: string): StayState & { refetch: () => Promise<void> 
 
   useEffect(() => {
     if (!id) {
-      setState({ status: 'error', message: 'Stay not found.', stay: undefined })
+      setState({
+        status: 'error',
+        message: 'Stay not found.',
+        stay: undefined,
+      })
       return
     }
 
@@ -60,11 +66,11 @@ export function useStay(id: string): StayState & { refetch: () => Promise<void> 
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to refresh stay'
-        setState((prev) => ({
-            ...prev,
-            message,
-            status: prev.stay ? 'success' : 'error',
-        }))
+      setState((prev) => ({
+        ...prev,
+        message,
+        status: prev.stay ? 'success' : 'error',
+      }))
     }
   }, [id])
 

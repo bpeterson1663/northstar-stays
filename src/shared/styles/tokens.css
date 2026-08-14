@@ -1,6 +1,6 @@
 :root {
   --color-ink: #0c2340;
-  --color-ink-soft: #236192; 
+  --color-ink-soft: #236192;
   --color-muted: #5c6b7a;
   --color-border: #d5dde6;
   --color-surface: #f7f9fc;
@@ -8,14 +8,14 @@
   --color-surface-subtle: #e8eef4;
 
   --color-primary: #154734;
-  --color-accent: #78be20; 
+  --color-accent: #78be20;
   --color-danger: #a6192e;
-  --color-rating: #eaaa00; 
+  --color-rating: #eaaa00;
 
   --color-shadow: rgb(12 35 64 / 8%);
 
   --radius-card: 16px;
 
-  --font-display: "Fraunces", "Georgia", serif;
-  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
 }

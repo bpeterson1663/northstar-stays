@@ -1,12 +1,12 @@
 .star-rating {
-    margin: 0;
-    letter-spacing: 0.05em;
+  margin: 0;
+  letter-spacing: 0.05em;
 }
 
 .star-rating__star {
-    color: var(--color-muted);
+  color: var(--color-muted);
 }
 
 .star-rating__star.is-filled {
-    color: var(--color-rating);
+  color: var(--color-rating);
 }

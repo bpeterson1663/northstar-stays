@@ -1,50 +1,56 @@
-import { useState, useEffect } from "react";
-import type { Review } from "../../shared/types/review";
-import type { Status } from "../../shared/types/status";
-import { getReviews } from "./api";
-import { isAbortError } from "../../shared/api/error";
+import { useState, useEffect } from 'react'
+import type { Review } from '../../shared/types/review'
+import type { Status } from '../../shared/types/status'
+import { getReviews } from './api'
+import { isAbortError } from '../../shared/api/error'
 
 interface ReviewsState {
-    status: Status;
-    reviews: Review[];
-    message: string;
+  status: Status
+  reviews: Review[]
+  message: string
 }
 
-export function useReviews(stayId: string): ReviewsState & { addReview: (review: Review) => void} {
-    const [state, setState] = useState<ReviewsState>({ status: 'loading', reviews: [], message: ''})
+export function useReviews(
+  stayId: string,
+): ReviewsState & { addReview: (review: Review) => void } {
+  const [state, setState] = useState<ReviewsState>({
+    status: 'loading',
+    reviews: [],
+    message: '',
+  })
 
-    useEffect(() => {
-        const controller = new AbortController();
+  useEffect(() => {
+    const controller = new AbortController()
 
-        async function loadReviews() {
-            try {
-                const reviews = await getReviews(stayId, controller.signal)
-                setState({ status: 'success', reviews, message: ''})
-            } catch (error) {
-                if (isAbortError(error)) {
-                    return
-                }
-
-                const message = error instanceof Error ? error.message : 'Failed to load reviews'
-                setState({ status: 'error', message, reviews: [] })
-            }
+    async function loadReviews() {
+      try {
+        const reviews = await getReviews(stayId, controller.signal)
+        setState({ status: 'success', reviews, message: '' })
+      } catch (error) {
+        if (isAbortError(error)) {
+          return
         }
 
-        void loadReviews();
-
-        return(() => {
-            controller.abort();   
-        })
-
-    }, [stayId])
-
-    function addReview(review: Review) {
-        setState((prev) => ({
-          ...prev,
-          status: 'success',
-          reviews: [review, ...prev.reviews],
-        }))
+        const message =
+          error instanceof Error ? error.message : 'Failed to load reviews'
+        setState({ status: 'error', message, reviews: [] })
+      }
     }
 
-    return { ...state, addReview}
+    void loadReviews()
+
+    return () => {
+      controller.abort()
+    }
+  }, [stayId])
+
+  function addReview(review: Review) {
+    setState((prev) => ({
+      ...prev,
+      status: 'success',
+      reviews: [review, ...prev.reviews],
+    }))
+  }
+
+  return { ...state, addReview }
 }

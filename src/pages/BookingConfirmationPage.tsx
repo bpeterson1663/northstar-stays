@@ -10,8 +10,7 @@ export function BookingConfirmationPage() {
   if (!booking) {
     return (
       <p>
-        Booking not found.{' '}
-        <Link to="/">Back to stays</Link>
+        Booking not found. <Link to="/">Back to stays</Link>
       </p>
     )
   }

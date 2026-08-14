@@ -22,8 +22,7 @@ export function StayDetailPage() {
   if (status === 'error' || !stay) {
     return (
       <p>
-        {message || 'Stay not found.'}{' '}
-        <Link to="/">Back to stays</Link>
+        {message || 'Stay not found.'} <Link to="/">Back to stays</Link>
       </p>
     )
   }

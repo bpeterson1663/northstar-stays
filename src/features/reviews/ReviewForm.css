@@ -1,85 +1,85 @@
 .review-form {
-    margin-top: 1.5rem;
-    padding: 1.25rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    background: var(--color-surface-raised);
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface-raised);
 }
-  
+
 .review-form__title {
-    margin: 0 0 1rem;
-    font-size: 1.125rem;
-    color: var(--color-ink);
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  color: var(--color-ink);
 }
-  
+
 .review-form__field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
 }
-  
+
 .review-form__field label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-ink);
 }
-  
-.review-form__field input, 
+
+.review-form__field input,
 .review-form__field select,
 .review-form__field textarea {
-    width: 100%;
-    padding: 0.65rem 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    background: var(--color-surface);
-    color: var(--color-ink);
-    font: inherit;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
 }
-  
+
 .review-form__field input:focus-visible,
 .review-form__field select:focus-visible,
 .review-form__field textarea:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
-  
+
 .review-form__field textarea {
-    resize: vertical;
-    min-height: 6rem;
+  resize: vertical;
+  min-height: 6rem;
 }
-  
+
 .review-form__error {
-    margin: 0 0 0.75rem;
-    color: var(--color-danger);
-    font-size: 0.875rem;
+  margin: 0 0 0.75rem;
+  color: var(--color-danger);
+  font-size: 0.875rem;
 }
-  
+
 .review-form button[type='submit'] {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.85rem 1rem;
-    border: none;
-    border-radius: 12px;
-    background: var(--color-primary);
-    color: #fff;
-    font: inherit;
-    font-weight: 600;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
 }
-  
+
 .review-form button[type='submit']:hover:not(:disabled) {
-    filter: brightness(1.05);
+  filter: brightness(1.05);
 }
-  
+
 .review-form button[type='submit']:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
+  opacity: 0.7;
+  cursor: not-allowed;
 }
-  
+
 .review-form button[type='submit']:focus-visible {
-    outline: 2px solid var(--color-ink);
-    outline-offset: 2px;
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
 }

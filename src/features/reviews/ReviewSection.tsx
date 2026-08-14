@@ -1,17 +1,22 @@
-import type { Review } from "../../shared/types/review"
-import { ReviewForm } from "./ReviewForm"
-import { ReviewList } from "./ReviewList"
-import { useReviews } from "./useReviews"
+import type { Review } from '../../shared/types/review'
+import { ReviewForm } from './ReviewForm'
+import { ReviewList } from './ReviewList'
+import { useReviews } from './useReviews'
 
 interface Props {
-  stayId: string;
-  averageRating: number;
-  reviewCount: number;
-  onReviewCreated?: () => void;
+  stayId: string
+  averageRating: number
+  reviewCount: number
+  onReviewCreated?: () => void
 }
 
-export function ReviewSection({ stayId, averageRating, reviewCount, onReviewCreated }: Props) {
-  const { status, message, reviews , addReview } = useReviews(stayId)
+export function ReviewSection({
+  stayId,
+  averageRating,
+  reviewCount,
+  onReviewCreated,
+}: Props) {
+  const { status, message, reviews, addReview } = useReviews(stayId)
 
   if (status === 'loading') {
     return <p>Loading reviews...</p>

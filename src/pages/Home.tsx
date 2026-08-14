@@ -25,7 +25,11 @@ export function Home() {
         return false
       }
     }
-    if (maxPrice != null && !Number.isNaN(maxPrice) && stay.pricePerNight > maxPrice) {
+    if (
+      maxPrice != null &&
+      !Number.isNaN(maxPrice) &&
+      stay.pricePerNight > maxPrice
+    ) {
       return false
     }
     return true
@@ -45,8 +49,8 @@ export function Home() {
             Find your perfect stay in Minnesota
           </h1>
           <p className="home__hero-copy">
-            Cabins, lake homes and lodges handpicked across the North Star
-            State from the North Shore to the Boundary Waters.
+            Cabins, lake homes and lodges handpicked across the North Star State
+            from the North Shore to the Boundary Waters.
           </p>
         </div>
       </section>
@@ -55,15 +59,17 @@ export function Home() {
         <StaySearch />
 
         <section aria-label="Available stays" className="home__results">
-          { status === 'loading' && <p className="home__status">Loading stays…</p> }
+          {status === 'loading' && (
+            <p className="home__status">Loading stays…</p>
+          )}
 
-          { status === 'error' &&
+          {status === 'error' && (
             <p className="home__status home__status--error">
               An error occurred: {message}
             </p>
-          }
+          )}
 
-          { status === 'success' && <StayList stays={filteredStays} /> }
+          {status === 'success' && <StayList stays={filteredStays} />}
         </section>
       </div>
     </div>
