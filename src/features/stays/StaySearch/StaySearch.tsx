@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import './StaySearch.css'
@@ -5,7 +6,15 @@ import './StaySearch.css'
 export function StaySearch() {
   const [searchParams, setSearchParams] = useSearchParams()
   const q = searchParams.get('q') ?? ''
-  const maxPrice = searchParams.get('maxPrice') ?? ''
+  const maxPriceFromUrl = searchParams.get('maxPrice') ?? ''
+
+  const [maxPriceInput, setMaxPriceInput] = useState(maxPriceFromUrl)
+  const debounceRef = useRef<ReturnType<typeof setTimeout>>(undefined)
+
+  useEffect(() => {
+    clearTimeout(debounceRef.current)
+    setMaxPriceInput(maxPriceFromUrl)
+  }, [maxPriceFromUrl])
 
   function updateParam(key: string, value: string) {
     const next = new URLSearchParams(searchParams)
@@ -18,11 +27,21 @@ export function StaySearch() {
     setSearchParams(next, { replace: true })
   }
 
+  function handleMaxPriceChange(value: string) {
+    setMaxPriceInput(value)
+    clearTimeout(debounceRef.current)
+    debounceRef.current = setTimeout(() => updateParam('maxPrice', value), 400)
+  }
+
   return (
     <form
       className="stay-search"
       role="search"
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={(e) => {
+        e.preventDefault()
+        clearTimeout(debounceRef.current)
+        updateParam('maxPrice', maxPriceInput)
+      }}
     >
       <div className="stay-search__field">
         <label htmlFor="stay-search-q">Search by name or city</label>
@@ -47,8 +66,8 @@ export function StaySearch() {
           placeholder="e.g. 300"
           inputMode="numeric"
           enterKeyHint="done"
-          value={maxPrice}
-          onChange={(e) => updateParam('maxPrice', e.target.value)}
+          value={maxPriceInput}
+          onChange={(e) => handleMaxPriceChange(e.target.value)}
         />
       </div>
       <button type="submit" className="stay-search__done">
