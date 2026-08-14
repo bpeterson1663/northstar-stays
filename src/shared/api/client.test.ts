@@ -47,7 +47,7 @@ describe('apiPost', () => {
     })
 
     expect(fetchMock).toHaveBeenCalledWith(
-      '/api/bookings',
+      'https://northstar-stays-api-509218226750.us-central1.run.app/api/bookings',
       expect.objectContaining({
         method: 'POST',
         headers: expect.objectContaining({

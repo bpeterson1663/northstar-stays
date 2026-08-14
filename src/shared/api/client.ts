@@ -1,6 +1,9 @@
 import { ApiError } from './error'
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '/api'
+const DEFAULT_API_BASE_URL =
+  'https://northstar-stays-api-509218226750.us-central1.run.app/api'
+
+const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? DEFAULT_API_BASE_URL
 
 export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${BASE_URL}${path}`, init)
