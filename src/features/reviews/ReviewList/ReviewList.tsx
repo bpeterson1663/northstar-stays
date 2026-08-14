@@ -1,7 +1,7 @@
-import { initials } from '../../shared/lib/utils'
-import { formatMonthYear } from '../../shared/lib/date'
-import type { Review } from '../../shared/types/review'
-import { StarRating } from '../../shared/ui/StarRating'
+import { initials } from '../../../shared/lib/utils'
+import { formatMonthYear } from '../../../shared/lib/date'
+import type { Review } from '../../../shared/types/review'
+import { StarRating } from '../../../shared/ui/StarRating'
 import './ReviewList.css'
 
 interface Props {

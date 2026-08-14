@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
-import type { Booking } from '../../shared/types/booking'
-import { formatDate } from '../../shared/lib/date'
+import type { Booking } from '../../../shared/types/booking'
+import { formatDate } from '../../../shared/lib/date'
 
 import './Confirmation.css'
 

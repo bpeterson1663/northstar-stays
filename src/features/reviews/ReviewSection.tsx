@@ -1,6 +1,6 @@
 import type { Review } from '../../shared/types/review'
-import { ReviewForm } from './ReviewForm'
-import { ReviewList } from './ReviewList'
+import { ReviewForm } from './ReviewForm/ReviewForm'
+import { ReviewList } from './ReviewList/ReviewList'
 import { useReviews } from './useReviews'
 
 interface Props {

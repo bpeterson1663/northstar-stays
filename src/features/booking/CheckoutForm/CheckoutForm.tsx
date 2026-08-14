@@ -1,8 +1,8 @@
 import { useActionState, useState } from 'react'
-import type { Booking } from '../../shared/types/booking'
-import { createBooking } from './api'
-import { SubmitButton } from '../../shared/ui/SubmitButton'
-import { estimateStayTotal } from '../../shared/lib/pricing'
+import type { Booking } from '../../../shared/types/booking'
+import { createBooking } from '../api'
+import { SubmitButton } from '../../../shared/ui/SubmitButton'
+import { estimateStayTotal } from '../../../shared/lib/pricing'
 
 import './CheckoutForm.css'
 

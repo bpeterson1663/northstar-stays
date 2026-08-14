@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 
-import { Confirmation } from '../features/booking/Confirmation'
+import { Confirmation } from '../features/booking/Confirmation/Confirmation'
 import type { Booking } from '../shared/types/booking'
 
 export function BookingConfirmationPage() {

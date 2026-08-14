@@ -1,7 +1,7 @@
 import { useActionState } from 'react'
-import type { Review } from '../../shared/types/review'
-import { createReview } from './api'
-import { SubmitButton } from '../../shared/ui/SubmitButton'
+import type { Review } from '../../../shared/types/review'
+import { createReview } from '../api'
+import { SubmitButton } from '../../../shared/ui/SubmitButton'
 
 import './ReviewForm.css'
 

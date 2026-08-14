@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
-import { Checkout } from '../features/booking/Checkout'
+import { Checkout } from '../features/booking/Checkout/Checkout'
 import { useStay } from '../features/stays/useStay'
 
 export function CheckoutPage() {

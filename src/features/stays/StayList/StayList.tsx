@@ -1,5 +1,5 @@
-import type { Stay } from '../../shared/types/stay'
-import { StayCard } from '../stays/StayCard'
+import type { Stay } from '../../../shared/types/stay'
+import { StayCard } from '../StayCard/StayCard'
 import './StayList.css'
 
 interface Props {

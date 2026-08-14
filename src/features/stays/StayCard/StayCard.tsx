@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import type { Stay } from '../../shared/types/stay'
+import type { Stay } from '../../../shared/types/stay'
 import './StayCard.css'
 
 interface Props {

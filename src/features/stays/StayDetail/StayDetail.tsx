@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import type { StayDetail as StayDetailType } from '../../shared/types/stay'
-import { Gallery } from '../../shared/ui/Gallery'
-import { ReviewSection } from '../reviews/ReviewSection'
+import type { StayDetail as StayDetailType } from '../../../shared/types/stay'
+import { Gallery } from '../../../shared/ui/Gallery'
+import { ReviewSection } from '../../reviews/ReviewSection'
 
 import './StayDetail.css'
 

@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 
-import { StayList } from '../features/stays/StayList'
-import { StaySearch } from '../features/stays/StaySearch'
+import { StayList } from '../features/stays/StayList/StayList'
+import { StaySearch } from '../features/stays/StaySearch/StaySearch'
 import { useStays } from '../features/stays/useStays'
 
 import './Home.css'

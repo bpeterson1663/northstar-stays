@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import type { Booking } from '../../shared/types/booking'
-import type { StayDetail } from '../../shared/types/stay'
-import { CheckoutForm } from './CheckoutForm'
+import type { Booking } from '../../../shared/types/booking'
+import type { StayDetail } from '../../../shared/types/stay'
+import { CheckoutForm } from '../CheckoutForm/CheckoutForm'
 
 import './Checkout.css'
 

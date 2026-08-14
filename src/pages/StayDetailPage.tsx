@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 
-import { StayDetail } from '../features/stays/StayDetail'
+import { StayDetail } from '../features/stays/StayDetail/StayDetail'
 import { useStay } from '../features/stays/useStay'
 
 export function StayDetailPage() {
