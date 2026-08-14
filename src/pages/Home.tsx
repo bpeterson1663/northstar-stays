@@ -60,7 +60,7 @@ export function Home() {
 
         <section aria-label="Available stays" className="home__results">
           {status === 'loading' && (
-            <p className="home__status">Loading stays…</p>
+            <p className="home__status">Loading stays...</p>
           )}
 
           {status === 'error' && (

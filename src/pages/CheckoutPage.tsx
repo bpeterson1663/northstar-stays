@@ -17,7 +17,7 @@ export function CheckoutPage() {
   }
 
   if (status === 'loading') {
-    return <p>Loading stay…</p>
+    return <p>Loading stay...</p>
   }
 
   if (status === 'error' || !stay) {
@@ -31,9 +31,7 @@ export function CheckoutPage() {
   return (
     <Checkout
       stay={stay}
-      onCreated={(booking) =>
-        navigate(`/bookings/${booking.id}`, { state: { booking } })
-      }
+      onCreated={(booking) => navigate(`/bookings/${booking.id}`)}
     />
   )
 }

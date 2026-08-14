@@ -16,7 +16,7 @@ export function StayDetailPage() {
   }
 
   if (status === 'loading') {
-    return <p>Loading stay…</p>
+    return <p>Loading stay...</p>
   }
 
   if (status === 'error' || !stay) {

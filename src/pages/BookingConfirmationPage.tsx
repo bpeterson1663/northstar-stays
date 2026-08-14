@@ -1,16 +1,28 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { Confirmation } from '../features/booking/Confirmation/Confirmation'
-import type { Booking } from '../shared/types/booking'
+import { useBooking } from '../features/booking/useBooking'
 
 export function BookingConfirmationPage() {
-  const location = useLocation()
-  const booking = (location.state as { booking?: Booking } | null)?.booking
+  const { bookingId } = useParams<{ bookingId: string }>()
+  const { booking, status, message } = useBooking(bookingId ?? '')
 
-  if (!booking) {
+  if (!bookingId) {
     return (
       <p>
         Booking not found. <Link to="/">Back to stays</Link>
+      </p>
+    )
+  }
+
+  if (status === 'loading') {
+    return <p>Loading booking...</p>
+  }
+
+  if (status === 'error' || !booking) {
+    return (
+      <p>
+        {message || 'Booking not found.'} <Link to="/">Back to stays</Link>
       </p>
     )
   }

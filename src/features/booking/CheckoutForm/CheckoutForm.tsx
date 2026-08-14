@@ -151,7 +151,7 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
         </div>
       )}
 
-      <SubmitButton label="Confirm booking" pendingLabel="Booking…" />
+      <SubmitButton label="Confirm booking" pendingLabel="Booking..." />
     </form>
   )
 }
