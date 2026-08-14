@@ -2,9 +2,9 @@
 
 Northstar Stays is a React + TypeScript travel booking application focused on Minnesota cabins, lake homes and lodges.
 
-**Live application:** https://northstar-stays.web.app/
-**Backend API Docs:** https://northstar-stays-api-509218226750.us-central1.run.app/docs/
-**Backend repository:** https://github.com/bpeterson1663/northstar-stays-backend
+- **Live application:** https://northstar-stays.web.app/
+- **Backend API Docs:** https://northstar-stays-api-509218226750.us-central1.run.app/docs/
+- **Backend repository:** https://github.com/bpeterson1663/northstar-stays-backend
 
 ## Features
 * Browse and search stays
