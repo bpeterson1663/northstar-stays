@@ -25,8 +25,8 @@ describe('CheckoutForm', () => {
 
     await user.type(screen.getByLabelText(/name/i), 'Alex')
     await user.type(screen.getByLabelText(/email/i), 'alex@example.com')
-    await user.type(screen.getByLabelText(/check in/i), '2026-08-10')
-    await user.type(screen.getByLabelText(/check out/i), '2026-08-12')
+    await user.type(screen.getByLabelText(/check in/i), '2026-08-20')
+    await user.type(screen.getByLabelText(/check out/i), '2026-08-22')
     await user.type(screen.getByLabelText(/card number/i), '4242424242424242')
     await user.click(screen.getByRole('button', { name: /confirm booking/i }))
 

@@ -2,6 +2,10 @@ import { useActionState, useState } from 'react'
 import type { Booking } from '../../../shared/types/booking'
 import { createBooking } from '../api'
 import { SubmitButton } from '../../../shared/ui/SubmitButton'
+import {
+  addDaysToDateInput,
+  tomorrowDateInputValue,
+} from '../../../shared/lib/date'
 import { estimateStayTotal } from '../../../shared/lib/pricing'
 
 import './CheckoutForm.css'
@@ -21,6 +25,11 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
   const [checkOut, setCheckOut] = useState('')
   const [cardNumber, setCardNumber] = useState('')
 
+  const minCheckIn = tomorrowDateInputValue()
+  const minCheckOut = checkIn
+    ? addDaysToDateInput(checkIn, 1)
+    : addDaysToDateInput(minCheckIn, 1)
+
   const [state, checkoutAction] = useActionState(
     async (_prev: FormState, formData: FormData): Promise<FormState> => {
       const guestName = String(formData.get('guestName') ?? '').trim()
@@ -34,10 +43,6 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
 
       if (!guestName || !guestEmail || !checkIn || !checkOut) {
         return { error: 'Name, email, and dates are required.' }
-      }
-
-      if (checkOut <= checkIn) {
-        return { error: 'Check out must be after check in.' }
       }
 
       const paymentLast4 = cardNumber.slice(-4) || undefined
@@ -66,7 +71,17 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
   const total = estimateStayTotal(pricePerNight, checkIn, checkOut)
 
   return (
-    <form className="checkout-form" action={checkoutAction}>
+    <form
+      className="checkout-form"
+      action={checkoutAction}
+      onSubmit={(e) => {
+        const form = e.currentTarget
+        if (!form.checkValidity()) {
+          e.preventDefault()
+          form.reportValidity()
+        }
+      }}
+    >
       <h2 className="checkout-form__title">Checkout</h2>
       <div className="checkout-form__field">
         <label htmlFor="guest-name">Name</label>
@@ -99,7 +114,7 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
           name="checkIn"
           type="date"
           required
-          value={checkIn}
+          min={minCheckIn}
           onChange={(e) => setCheckIn(e.target.value)}
         />
       </div>
@@ -110,7 +125,7 @@ export function CheckoutForm({ stayId, pricePerNight, onCreated }: Props) {
           name="checkOut"
           type="date"
           required
-          value={checkOut}
+          min={minCheckOut}
           onChange={(e) => setCheckOut(e.target.value)}
         />
       </div>
